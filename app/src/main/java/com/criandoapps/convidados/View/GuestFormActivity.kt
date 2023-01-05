@@ -1,22 +1,24 @@
-package com.criandoapps.convidados
+package com.criandoapps.convidados.View
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
+import com.criandoapps.convidados.R
+import com.criandoapps.convidados.ViewModel.GuestFormViewModel
 import com.criandoapps.convidados.databinding.ActivityGuestFormBinding
 
 class GuestFormActivity : AppCompatActivity(), View.OnClickListener {
 
     private lateinit var binding: ActivityGuestFormBinding
-    private lateinit var viewModel: GuesFormViewModel
+    private lateinit var viewModel: GuestFormViewModel
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         binding = ActivityGuestFormBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        viewModel = ViewModelProvider(this).get(GuesFormViewModel::class.java)
+        viewModel = ViewModelProvider(this).get(GuestFormViewModel::class.java)
         binding.buttonSave.setOnClickListener(this)
         binding.radioPresent.isChecked = true
     }

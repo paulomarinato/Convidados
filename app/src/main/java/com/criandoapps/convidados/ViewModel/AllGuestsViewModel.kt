@@ -1,4 +1,4 @@
-package com.criandoapps.convidados.ui
+package com.criandoapps.convidados.ViewModel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
