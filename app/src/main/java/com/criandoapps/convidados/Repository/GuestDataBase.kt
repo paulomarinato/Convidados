@@ -16,7 +16,7 @@ class GuestDataBase(context: Context) : SQLiteOpenHelper(context, NAME, null, VE
         db.execSQL("CREATE TABLE Guest( " +
                 "id integer primary key autoincrement, " +
                 "name text, " +
-                "present interger);")
+                "present integer);")
     }
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
     }

@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import androidx.lifecycle.ViewModelProvider
+import com.criandoapps.convidados.Model.GuestModel
 import com.criandoapps.convidados.R
 import com.criandoapps.convidados.ViewModel.GuestFormViewModel
 import com.criandoapps.convidados.databinding.ActivityGuestFormBinding
@@ -18,13 +19,20 @@ class GuestFormActivity : AppCompatActivity(), View.OnClickListener {
 
         binding = ActivityGuestFormBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         viewModel = ViewModelProvider(this).get(GuestFormViewModel::class.java)
+
         binding.buttonSave.setOnClickListener(this)
         binding.radioPresent.isChecked = true
     }
 
     override fun onClick(v: View) {
         if (v.id == R.id.button_save){
+            val name = binding.editName.text.toString()
+            val presense = binding.radioPresent.isChecked
+
+            val model = GuestModel(0, name, presense)
+            viewModel.insert(model)
 
         }
     }
