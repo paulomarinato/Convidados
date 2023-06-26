@@ -56,6 +56,6 @@ class MainActivity : AppCompatActivity() {
     }
 }
 
-fun{
-    teste
+fun teste{
+    teste(seguindo o teste)
 }
