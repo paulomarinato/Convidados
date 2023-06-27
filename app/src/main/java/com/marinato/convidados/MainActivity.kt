@@ -55,7 +55,3 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp(appBarConfiguration) || super.onSupportNavigateUp()
     }
 }
-
-fun teste{
-    teste(seguindo o teste)
-}
