@@ -13,13 +13,14 @@ class GalleryFragment : Fragment() {
 
     private var _binding: FragmentGalleryBinding? = null
 
-    // This property is only valid between onCreateView and onDestroyView.
+    // This property is only valid between onCreateView and
+    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
         inflater: LayoutInflater,
         container: ViewGroup?,
-        savedInstanceState: Bundle?,
+        savedInstanceState: Bundle?
     ): View {
         val galleryViewModel =
             ViewModelProvider(this).get(GalleryViewModel::class.java)
