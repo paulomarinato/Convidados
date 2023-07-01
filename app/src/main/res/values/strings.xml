@@ -10,4 +10,8 @@
     <string name="menu_all_guests">Todos Convidados</string>
     <string name="menu_Present">Presentes</string>
     <string name="menu_absent">Ausentes</string>
+    <string name="nome_TextConfirmationLoguin">nome</string>
+    <string name="present_TextConfirmationLoguin">Presença</string>
+    <string name="present_ButtonConfirmationLoguin">Presença</string>
+    <string name="absent_TextConfirmationLoguin">Ausente</string>
 </resources>
