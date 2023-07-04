@@ -1,5 +1,7 @@
 package com.marinato.convidados.repository
 
+import com.marinato.convidados.DataBase.GuestDataBase
+
 class GuestRepostory private constructor() {
 
 
@@ -12,5 +14,9 @@ class GuestRepostory private constructor() {
             }
             return repostory
         }
+    }
+
+    fun save() {
+        GuestDataBase(null)
     }
 }
