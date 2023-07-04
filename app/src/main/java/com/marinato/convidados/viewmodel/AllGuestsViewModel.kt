@@ -1,4 +1,4 @@
-package com.marinato.convidados.ui
+package com.marinato.convidados.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData

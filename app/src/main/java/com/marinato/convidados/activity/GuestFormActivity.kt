@@ -1,10 +1,10 @@
-package com.marinato.convidados
+package com.marinato.convidados.activity
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
-import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import com.marinato.convidados.viewmodel.GuestFormViewModel
 import com.marinato.convidados.R
 import com.marinato.convidados.databinding.ActivityGuestFormBinding
 
@@ -21,6 +21,7 @@ class GuestFormActivity : AppCompatActivity(), View.OnClickListener {
         viewModel = ViewModelProvider(this).get(GuestFormViewModel::class.java)
 
         binding.buttonSave.setOnClickListener (this)
+        binding.radioPresent.isChecked = true
     }
 
     override fun onClick(v: View) {

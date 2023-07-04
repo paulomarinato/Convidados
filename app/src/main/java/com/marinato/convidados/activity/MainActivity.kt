@@ -1,4 +1,4 @@
-package com.marinato.convidados
+package com.marinato.convidados.activity
 
 import android.content.Intent
 import android.os.Bundle
@@ -10,6 +10,7 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import androidx.navigation.ui.setupWithNavController
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.appcompat.app.AppCompatActivity
+import com.marinato.convidados.R
 import com.marinato.convidados.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {

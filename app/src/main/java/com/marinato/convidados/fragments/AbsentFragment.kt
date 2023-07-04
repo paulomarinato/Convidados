@@ -1,4 +1,4 @@
-package com.marinato.convidados.ui
+package com.marinato.convidados.fragments
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,6 +8,7 @@ import android.widget.TextView
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import com.marinato.convidados.databinding.FragmentAbsentBinding
+import com.marinato.convidados.viewmodel.AbsentViewModel
 
 class AbsentFragment : Fragment() {
 

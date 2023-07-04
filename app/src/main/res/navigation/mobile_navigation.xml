@@ -7,19 +7,19 @@
 
     <fragment
         android:id="@+id/nav_home"
-        android:name="com.marinato.convidados.ui.AllGuestsFragment"
+        android:name="com.marinato.convidados.fragments.AllGuestsFragment"
         android:label="@string/menu_all_guests"
         tools:layout="@layout/fragment_home" />
 
     <fragment
         android:id="@+id/nav_present"
-        android:name="com.marinato.convidados.ui.PresentFragment"
+        android:name="com.marinato.convidados.fragments.PresentFragment"
         android:label="@string/menu_Present"
         tools:layout="@layout/fragment_present" />
 
     <fragment
         android:id="@+id/nav_absent"
-        android:name="com.marinato.convidados.ui.AbsentFragment"
+        android:name="com.marinato.convidados.fragments.AbsentFragment"
         android:label="@string/menu_absent"
         tools:layout="@layout/fragment_absent" />
 </navigation>
