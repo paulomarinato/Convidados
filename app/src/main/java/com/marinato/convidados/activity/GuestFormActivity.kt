@@ -7,6 +7,7 @@ import androidx.lifecycle.ViewModelProvider
 import com.marinato.convidados.viewmodel.GuestFormViewModel
 import com.marinato.convidados.R
 import com.marinato.convidados.databinding.ActivityGuestFormBinding
+import com.marinato.convidados.model.GuestModel
 
 class GuestFormActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -26,6 +27,8 @@ class GuestFormActivity : AppCompatActivity(), View.OnClickListener {
 
     override fun onClick(v: View) {
         if (v.id == R.id.button_save){
+
+            //view.save(GuestModel( 10, "xxx", false))
 
         }
     }

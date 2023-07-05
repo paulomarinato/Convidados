@@ -2,6 +2,7 @@ package com.marinato.convidados.repository
 
 import android.content.Context
 import com.marinato.convidados.DataBase.GuestDataBase
+import com.marinato.convidados.model.GuestModel
 
 class GuestRepostory private constructor(context: Context) {
 
@@ -19,7 +20,7 @@ class GuestRepostory private constructor(context: Context) {
         }
     }
 
-    fun save() {
+    fun insert() {
 
     }
     fun update() {
