@@ -10,10 +10,13 @@ class GuestDataBase( context: Context) : SQLiteOpenHelper(context, NAME, null, V
         private const val NAME = "guestDB"
         private const val VERSION = 1
     }
- //criando banco de dados
+        //criando banco de dados
     override fun onCreate(db: SQLiteDatabase) {
-        db.execSQL("create table Guest (id integer primary key autoincrement, " +
-                "name text, presence integer);")
+        db.execSQL("create table" +
+                Constants.GUEST.TABLE_NAME + "(" +
+                Constants.GUEST.COLUMNS.ID + "integer primary key autoincrement, " +
+                Constants.GUEST.COLUMNS.NAME + "text, " +
+                Constants.GUEST.COLUMNS.PRESENCE + "integer);")
     }
 
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
