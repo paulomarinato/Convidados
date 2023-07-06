@@ -25,7 +25,6 @@ class GuestRepostory private constructor(context: Context) {
     fun insert(guest: GuestModel): Boolean {
         return try {
             val db =  guestDataBase.writableDatabase
-
             val presence = if (guest.presence) 1  else 0
 
             val values = ContentValues()
@@ -38,7 +37,24 @@ class GuestRepostory private constructor(context: Context) {
             false
         }
     }
-    fun update() {
+    fun update(guest: GuestModel): Boolean {
+        return try {
+            val db = guestDataBase.writableDatabase
+            val presence = if (guest.presence) 1  else 0
+
+            val values = ContentValues()
+            values.put(Constants.GUEST.COLUMNS.NAME, guest.name)
+            values.put(Constants.GUEST.COLUMNS.PRESENCE, presence)
+
+
+            val selections = Constants.GUEST.COLUMNS.ID + "= ?"
+            val args = arrayOf(guest.id.toString())
+
+            db.update(Constants.GUEST.TABLE_NAME, values, selections, args)
+            true
+        }catch (e: Exception){
+            false
+        }
 
     }
 }
