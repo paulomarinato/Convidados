@@ -19,4 +19,6 @@ class GuestDataBase( context: Context) : SQLiteOpenHelper(context, NAME, null, V
                 Constants.GUEST.COLUMNS.PRESENCE + "integer);")
     }
 
+    override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
+    }
 }

@@ -2,6 +2,7 @@ package com.marinato.convidados.repository
 
 import android.content.ContentValues
 import android.content.Context
+import com.marinato.convidados.DataBase.Constants
 import com.marinato.convidados.DataBase.GuestDataBase
 import com.marinato.convidados.model.GuestModel
 
@@ -28,10 +29,10 @@ class GuestRepostory private constructor(context: Context) {
             val presence = if (guest.presence) 1  else 0
 
             val values = ContentValues()
-            values.put("name", guest.name)
-            values.put("presence", presence)
+            values.put(Constants.GUEST.COLUMNS.NAME, guest.name)
+            values.put(Constants.GUEST.COLUMNS.PRESENCE, presence)
 
-            db.insert("Guest", null, values)
+            db.insert(Constants.GUEST.TABLE_NAME , null, values)
             true
         }catch (e: Exception){
             false
