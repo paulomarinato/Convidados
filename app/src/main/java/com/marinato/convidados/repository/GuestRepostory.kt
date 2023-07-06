@@ -57,4 +57,18 @@ class GuestRepostory private constructor(context: Context) {
         }
 
     }
+    fun delete(id: Int): Boolean {
+        return try {
+            val db = guestDataBase.writableDatabase
+
+            val selections = Constants.GUEST.COLUMNS.ID + "= ?"
+            val args = arrayOf(id.toString())
+
+            db.delete(Constants.GUEST.TABLE_NAME, selections, args)
+            true
+        }catch (e: Exception){
+            false
+        }
+
+    }
 }
