@@ -1,4 +1,4 @@
-package com.marinato.convidados.DataBase
+package com.marinato.convidados.dataBase
 
 import android.content.Context
 import android.database.sqlite.SQLiteDatabase

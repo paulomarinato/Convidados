@@ -2,8 +2,9 @@ package com.marinato.convidados.repository
 
 import android.content.ContentValues
 import android.content.Context
-import com.marinato.convidados.DataBase.Constants
-import com.marinato.convidados.DataBase.GuestDataBase
+import android.text.Selection
+import com.marinato.convidados.dataBase.Constants
+import com.marinato.convidados.dataBase.GuestDataBase
 import com.marinato.convidados.model.GuestModel
 
 class GuestRepostory private constructor(context: Context) {
@@ -79,19 +80,77 @@ class GuestRepostory private constructor(context: Context) {
         try {
             val db = guestDataBase.readableDatabase
 
-            val selections = arrayOf(
+            val projection = arrayOf(
                 Constants.GUEST.COLUMNS.ID,
                 Constants.GUEST.COLUMNS.NAME,
                 Constants.GUEST.COLUMNS.PRESENCE,
             )
 
             val cursor = db.query(
-                Constants.GUEST.TABLE_NAME, selections,
+                Constants.GUEST.TABLE_NAME, projection,
                 null, null,
                 null, null, null
             )
 
-            If (cursor != null &&  cursor.count > 0) {
+            if (cursor != null &&  cursor.count >= 0) {
+                while (cursor.moveToNext()) {
+
+                    val id =
+                        cursor.getInt(cursor.getColumnIndex(Constants.GUEST.COLUMNS.ID))
+
+                    val name =
+                        cursor.getString(cursor.getColumnIndex(Constants.GUEST.COLUMNS.NAME))
+
+                    val presence =
+                        cursor.getInt(cursor.getColumnIndex(Constants.GUEST.COLUMNS.PRESENCE))
+
+                    val guest = GuestModel( id, name, presence == 1 )
+                }
+            }
+            cursor.close()
+        }catch (e: Exception){
+            return list
+        }
+        return list
+    }
+
+    fun getPresent() :List<GuestModel> {
+        val list = mutableListOf<GuestModel>()
+        try {
+            val db = guestDataBase.readableDatabase
+            val cursor = db.rawQuery("SELECT id, name, " +
+                    "presence FROM Guest WHERE presence = 1", null)
+
+            if (cursor != null &&  cursor.count > 0) {
+                while (cursor.moveToNext()) {
+
+                    val id =
+                        cursor.getInt(cursor.getColumnIndex(Constants.GUEST.COLUMNS.ID))
+
+                    val name =
+                        cursor.getString(cursor.getColumnIndex(Constants.GUEST.COLUMNS.NAME))
+
+                    val presence =
+                        cursor.getInt(cursor.getColumnIndex(Constants.GUEST.COLUMNS.PRESENCE))
+
+                    val guest = GuestModel( id, name, presence == 1 )
+                }
+            }
+            cursor.close()
+        }catch (e: Exception){
+            return list
+        }
+        return list
+    }
+
+    fun getAbsent() :List<GuestModel> {
+        val list = mutableListOf<GuestModel>()
+        try {
+            val db = guestDataBase.readableDatabase
+            val cursor = db.rawQuery("SELECT id, name, " +
+                    "presence FROM Guest WHERE presence = 0", null)
+
+            if (cursor != null &&  cursor.count > 0) {
                 while (cursor.moveToNext()) {
 
                     val id =
