@@ -25,6 +25,8 @@ class AllGuestsFragment : Fragment() {
         _binding = FragmentPresentBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
+        viewModel.getAll()
+
         observe()
 
         return root
