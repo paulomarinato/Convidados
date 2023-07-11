@@ -14,8 +14,6 @@ class PresentFragment : Fragment() {
 
     private var _binding: FragmentPresentBinding? = null
 
-    // This property is only valid between onCreateView and
-    // onDestroyView.
     private val binding get() = _binding!!
 
     override fun onCreateView(
@@ -24,12 +22,12 @@ class PresentFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View {
         val ViewModel =
-            ViewModelProvider(this).get(PresentViewModel::class.java)
+            ViewModelProvider(this)[PresentViewModel::class.java]
 
         _binding = FragmentPresentBinding.inflate(inflater, container, false)
         val root: View = binding.root
 
-        val textView: TextView = binding.textGallery
+        val textView: TextView = binding.textGalery
         ViewModel.text.observe(viewLifecycleOwner) {
             textView.text = it
         }
