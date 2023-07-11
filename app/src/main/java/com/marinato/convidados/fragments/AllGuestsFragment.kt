@@ -6,7 +6,9 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.LinearLayoutManager
 import com.marinato.convidados.databinding.FragmentPresentBinding
+import com.marinato.convidados.adapatadores.adapter.GuestsAdapter
 import com.marinato.convidados.viewmodel.AllGuestsViewModel
 
 class AllGuestsFragment : Fragment() {
@@ -19,7 +21,12 @@ class AllGuestsFragment : Fragment() {
         viewModel = ViewModelProvider(this)[AllGuestsViewModel::class.java]
         _binding = FragmentPresentBinding.inflate(inflater, container, false)
 
-        binding.recyclerPresent.layoutManager
+
+        //Layout
+        binding.recyclerPresent.layoutManager = LinearLayoutManager(context)
+
+        //adapter
+        binding.recyclerPresent.adapter = GuestsAdapter()
 
         viewModel.getAll()
 
