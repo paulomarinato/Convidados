@@ -15,21 +15,16 @@ class AllGuestsFragment : Fragment() {
     private val binding get() = _binding!!
     private lateinit var viewModel: AllGuestsViewModel
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, b: Bundle?): View {
         viewModel = ViewModelProvider(this)[AllGuestsViewModel::class.java]
-
         _binding = FragmentPresentBinding.inflate(inflater, container, false)
-        val root: View = binding.root
+
+        binding.recyclerPresent.layoutManager
 
         viewModel.getAll()
 
         observe()
-
-        return root
+        return binding.root
     }
 
     override fun onDestroyView() {
@@ -37,8 +32,8 @@ class AllGuestsFragment : Fragment() {
         _binding = null
     }
 
-    private fun observe(){
-        viewModel.guests.observe(viewLifecycleOwner){
+    private fun observe() {
+        viewModel.guests.observe(viewLifecycleOwner) {
         }
     }
 }
