@@ -4,11 +4,13 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.marinato.convidados.databinding.FragmentPresentBinding
 import com.marinato.convidados.adapatadores.adapter.GuestsAdapter
+import com.marinato.convidados.adapatadores.listener.OnGuestListener
 import com.marinato.convidados.viewmodel.AllGuestsViewModel
 
 class AllGuestsFragment : Fragment() {
@@ -27,6 +29,19 @@ class AllGuestsFragment : Fragment() {
 
         //adapter
         binding.recyclerPresent.adapter = GuestsAdapter()
+
+        val listener = object : OnGuestListener{
+            override fun onClick(id: Int) {
+                Toast.makeText(context, "Oi, Fui Clicado.", Toast.LENGTH_SHORT).show()
+            }
+
+            override fun onDelete(id: Int) {
+                TODO("Not yet implemented")
+            }
+
+        }
+
+        adapter.attchlistener(listener)
 
         viewModel.getAll()
 
