@@ -26,12 +26,6 @@ class GuestFormActivity : AppCompatActivity(), View.OnClickListener {
         binding.buttonSave.setOnClickListener (this)
         binding.radioPresent.isChecked = true
 
-        /*
-        if (binding.radioAbsent.isChecked) {
-            binding.radioPresent.isChecked = false
-        }
-        */
-
         loadData()
     }
 

@@ -12,8 +12,8 @@ class AllGuestsViewModel(application: Application) : AndroidViewModel(applicatio
     private val repository: GuestRepostory =
         GuestRepostory.getInstance(application.applicationContext)
 
-    private val listAllGuests = MutableLiveData<List<GuestModel>>()
-    val guests: LiveData<List<GuestModel>> = listAllGuests
+    /*private val listAllGuests = MutableLiveData<List<GuestModel>>()
+    val guests: LiveData<List<GuestModel>> = listAllGuests*/
 
     fun getAll(){
         listAllGuests.value = repository.getAll()
