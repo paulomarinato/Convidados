@@ -1,5 +1,6 @@
 package com.marinato.convidados.fragments
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -8,9 +9,11 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.marinato.convidados.activity.GuestFormActivity
 import com.marinato.convidados.databinding.FragmentPresentBinding
 import com.marinato.convidados.adapatadores.adapter.GuestsAdapter
 import com.marinato.convidados.adapatadores.listener.OnGuestListener
+import com.marinato.convidados.dataBase.Constants
 import com.marinato.convidados.viewmodel.AllGuestsViewModel
 
 class AllGuestsFragment : Fragment() {
@@ -32,7 +35,12 @@ class AllGuestsFragment : Fragment() {
 
         val listener = object : OnGuestListener{
             override fun onClick(id: Int) {
-                Toast.makeText(context, "Oi, Fui Clicado.", Toast.LENGTH_SHORT).show()
+                val intent = Intent(context, GuestFormActivity::class.java)
+                val bundle = Bundle()
+                bundle.putInt(Constants.GUEST.ID, id)
+                intent.putExtras(bundle)
+
+                startActivity(intent)
             }
 
             override fun onDelete(id: Int) {

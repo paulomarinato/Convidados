@@ -6,8 +6,10 @@ import android.view.View
 import androidx.lifecycle.ViewModelProvider
 import com.marinato.convidados.viewmodel.GuestFormViewModel
 import com.marinato.convidados.R
+import com.marinato.convidados.dataBase.Constants
 import com.marinato.convidados.databinding.ActivityGuestFormBinding
 import com.marinato.convidados.model.GuestModel
+import java.sql.DatabaseMetaData
 
 class GuestFormActivity : AppCompatActivity(), View.OnClickListener {
 
@@ -29,6 +31,8 @@ class GuestFormActivity : AppCompatActivity(), View.OnClickListener {
             binding.radioPresent.isChecked = false
         }
         */
+
+        loadData()
     }
 
     override fun onClick(v: View) {
@@ -39,6 +43,14 @@ class GuestFormActivity : AppCompatActivity(), View.OnClickListener {
             val model = GuestModel(0, name, presence)
             viewModel.insert(model)
 
+        }
+    }
+
+    private fun loadData() {
+        val bundle = intent.extras
+        if (bundle != null) {
+            val guestId = bundle.getInt(Constants.GUEST.ID)
+            viewModel.get(guestId )
         }
     }
 }

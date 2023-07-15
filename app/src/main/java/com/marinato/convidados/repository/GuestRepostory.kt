@@ -11,7 +11,6 @@ class GuestRepostory private constructor(context: Context) {
 
     private val guestDataBase = GuestDataBase(context)
 
-
     companion object {
         private lateinit var repostory: GuestRepostory
 
@@ -60,7 +59,7 @@ class GuestRepostory private constructor(context: Context) {
 
     }
 
-    fun delete(id: Int): Boolean {
+    fun delete (id: Int): Boolean {
         return try {
             val db = guestDataBase.writableDatabase
 
@@ -73,6 +72,46 @@ class GuestRepostory private constructor(context: Context) {
             false
         }
 
+    }
+
+    fun get(id: Int): GuestModel? {
+        val guest: GuestModel? = null
+        try {
+            val db = guestDataBase.readableDatabase
+
+            val projection = arrayOf(
+                Constants.GUEST.COLUMNS.ID,
+                Constants.GUEST.COLUMNS.NAME,
+                Constants.GUEST.COLUMNS.PRESENCE,
+            )
+
+            val selections = Constants.GUEST.COLUMNS.ID + "= ?"
+            val args = arrayOf(id.toString())
+
+            val cursor = db.query(
+                Constants.GUEST.TABLE_NAME, projection,
+                selections, args,
+                null, null, null
+            )
+
+            if (cursor != null &&  cursor.count >= 0) {
+                while (cursor.moveToNext()) {
+
+                    val name =
+                        cursor.getString(cursor.getColumnIndex(Constants.GUEST.COLUMNS.NAME))
+
+                    val presence =
+                        cursor.getInt(cursor.getColumnIndex(Constants.GUEST.COLUMNS.PRESENCE))
+
+                    guest = GuestModel( id, name, presence == 1 )
+                }
+            }
+
+            cursor.close()
+        }catch (e: Exception){
+            return guest
+        }
+        return guest
     }
 
     fun getAll() :List<GuestModel> {
