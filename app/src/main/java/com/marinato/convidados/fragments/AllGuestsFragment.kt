@@ -51,7 +51,7 @@ class AllGuestsFragment : Fragment() {
         }
 
         adapter.attchlistener(listener)
-        
+
         observe()
         return binding.root
     }
@@ -66,7 +66,7 @@ class AllGuestsFragment : Fragment() {
     }
 
     private fun observe() {
-        viewModel.guests.observe(viewLifecycleOwner) {
+        viewModel.guest.observe(viewLifecycleOwner) {
             adapter.updatedGuests(it)
         }
     }
