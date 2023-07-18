@@ -6,15 +6,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:padding="10dp"
-    tools:context=".fragments.PresentFragment">
+    tools:context=".fragments.AllGuestsFragment">
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/recycler_present"
-        android:layout_width="match_parent"
+        android:id="@+id/recycler_guests"
+        android:layout_width="0dp"
         android:layout_height="match_parent"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="parent" />
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
