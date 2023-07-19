@@ -2,23 +2,26 @@ package com.marinato.convidados.viewmodel
 
 import android.app.Application
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
+import androidx.lifecycle.MutableLiveData
+import com.marinato.convidados.model.GuestModel
 import com.marinato.convidados.repository.GuestRepostory
 
 class GuestsViewModel(application: Application) : AndroidViewModel(application) {
 
     private val repository =  GuestRepostory.getInstance(application.applicationContext)
 
-    private val listAllGuests = MutableLiveData<List<GuestModel>>()
-    val guests: LiveData<List<GuestModel>> = listAllGuests
+    private val _guestList = MutableLiveData<List<GuestModel>>()
+    val guestList: LiveData<List<GuestModel>> = _guestList
 
-    fun getAll(){
-        listAllGuests.value = repository.getAll()
+    fun getAll() {
+        _guestList.value = repository.getAll()
     }
-    fun getAbsent(){
-        listAllGuests.value = repository.getAbsent()
+    fun getAbsent() {
+        _guestList.value = repository.getAbsent()
     }
-    fun getPresent(){
-        listAllGuests.value = repository.getPresent()
+    fun getPresent() {
+        _guestList.value = repository.getPresent()
     }
     fun delete (id: Int){
         repository.delete(id)
