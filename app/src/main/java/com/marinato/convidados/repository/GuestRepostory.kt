@@ -2,7 +2,6 @@ package com.marinato.convidados.repository
 
 import android.content.ContentValues
 import android.content.Context
-import android.text.Selection
 import com.marinato.convidados.dataBase.Constants
 import com.marinato.convidados.dataBase.GuestDataBase
 import com.marinato.convidados.model.GuestModel
@@ -75,7 +74,7 @@ class GuestRepostory private constructor(context: Context) {
     }
 
     fun get(id: Int): GuestModel? {
-        val guest: GuestModel? = null
+        var guest: GuestModel? = null
         try {
             val db = guestDataBase.readableDatabase
 
@@ -96,7 +95,6 @@ class GuestRepostory private constructor(context: Context) {
 
             if (cursor != null &&  cursor.count >= 0) {
                 while (cursor.moveToNext()) {
-
                     val name =
                         cursor.getString(cursor.getColumnIndex(Constants.GUEST.COLUMNS.NAME))
 
@@ -104,6 +102,7 @@ class GuestRepostory private constructor(context: Context) {
                         cursor.getInt(cursor.getColumnIndex(Constants.GUEST.COLUMNS.PRESENCE))
 
                     guest = GuestModel( id, name, presence == 1 )
+
                 }
             }
 

@@ -58,7 +58,7 @@ class PresentFragment : Fragment() {
         _binding = null
     }
     private fun observe() {
-        viewModel.guests.observe(viewLifecycleOwner) {
+        viewModel.guestList.observe(viewLifecycleOwner) {
             adapter.updatedGuests(it)
         }
     }

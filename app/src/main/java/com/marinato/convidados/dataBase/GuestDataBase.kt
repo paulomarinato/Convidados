@@ -8,9 +8,7 @@ class GuestDataBase( context: Context) : SQLiteOpenHelper(context, NAME, null, V
 
     companion object{
         private const val NAME = "guestDB"
-        private const val VERSION = 1
-    }
-        //criando banco de dados
+        private const val VERSION = 1 }
     override fun onCreate(db: SQLiteDatabase) {
         db.execSQL("create table" +
                 Constants.GUEST.TABLE_NAME + "(" +
@@ -18,7 +16,6 @@ class GuestDataBase( context: Context) : SQLiteOpenHelper(context, NAME, null, V
                 Constants.GUEST.COLUMNS.NAME + "text, " +
                 Constants.GUEST.COLUMNS.PRESENCE + "integer);")
     }
-
     override fun onUpgrade(db: SQLiteDatabase, oldVersion: Int, newVersion: Int) {
     }
 }

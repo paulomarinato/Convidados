@@ -1,8 +1,5 @@
 package com.marinato.convidados.adapatadores.viewHolder
 
-import android.content.DialogInterface
-import android.icu.text.LocaleDisplayNames.DialectHandling
-import android.view.View
 import androidx.appcompat.app.AlertDialog
 import androidx.recyclerview.widget.RecyclerView
 import com.marinato.convidados.adapatadores.listener.OnGuestListener
